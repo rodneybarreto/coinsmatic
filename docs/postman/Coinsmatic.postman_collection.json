@@ -1,0 +1,141 @@
+{
+	"info": {
+		"_postman_id": "e1888698-88d5-45df-adf9-4ee508ab4a07",
+		"name": "Coinsmatic",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "6675565"
+	},
+	"item": [
+		{
+			"name": "Create coin",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"code\": \"001\",\n    \"name\": \"1 centavo\",\n    \"description\": \"Pedro Álvares Cabral, cobre sobre aço\",\n    \"value\": 0.01\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/coinsmatic/coins",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"coinsmatic",
+						"coins"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update coin values",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"mbc_value\": 5.00,\n    \"s_value\": 18.0,\n    \"fc_value\": 45.0 \n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/coinsmatic/emissions/2004/coins/1bai",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"coinsmatic",
+						"emissions",
+						"2004",
+						"coins",
+						"1bai"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create defect",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"coin_code\": \"1bai\",\n    \"year\": 2004,\n    \"description\": \"1. Núcleo deslocado, expansão do anel revestivo de bonze para o miolo prateado; 2. Disco descentralizado(efeito boné).\",\n    \"estimated_value\": 1100.0 \n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/coinsmatic/defects",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"coinsmatic",
+						"defects"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List all coins",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/coinsmatic/coins",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"coinsmatic",
+						"coins"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Find by code",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/coinsmatic/coins/1bai",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"coinsmatic",
+						"coins",
+						"1bai"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
