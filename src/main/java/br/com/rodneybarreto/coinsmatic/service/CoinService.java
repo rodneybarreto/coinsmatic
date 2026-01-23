@@ -30,12 +30,12 @@ public class CoinService {
         return coin.getCode();
     }
 
-    @Transactional
+    @Transactional(readOnly = true)
     public List<CoinResponse> findAll() {
         return repository.findAll().stream().map(CoinResponse::new).toList();
     }
 
-    @Transactional
+    @Transactional(readOnly = true)
     public CoinResponse findByCode(String code) {
         return repository.findByCode(code)
                 .map(CoinResponse::new)
