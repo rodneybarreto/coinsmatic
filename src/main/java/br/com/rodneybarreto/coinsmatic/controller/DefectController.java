@@ -2,6 +2,7 @@ package br.com.rodneybarreto.coinsmatic.controller;
 
 import br.com.rodneybarreto.coinsmatic.domain.dto.DefectRequest;
 import br.com.rodneybarreto.coinsmatic.service.DefectService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -19,7 +20,7 @@ public class DefectController {
     private final DefectService service;
 
     @PostMapping(consumes = APPLICATION_JSON_VALUE)
-    public ResponseEntity<Void> create(@RequestBody DefectRequest request) {
+    public ResponseEntity<Void> create(@Valid @RequestBody DefectRequest request) {
         service.create(request);
         return ResponseEntity.ok().build();
     }

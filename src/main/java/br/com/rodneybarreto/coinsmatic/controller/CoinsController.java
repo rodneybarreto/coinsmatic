@@ -3,6 +3,7 @@ package br.com.rodneybarreto.coinsmatic.controller;
 import br.com.rodneybarreto.coinsmatic.domain.dto.CoinRequest;
 import br.com.rodneybarreto.coinsmatic.domain.dto.CoinResponse;
 import br.com.rodneybarreto.coinsmatic.service.CoinService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -20,9 +21,9 @@ public class CoinsController {
     private final CoinService service;
 
     @PostMapping(consumes = APPLICATION_JSON_VALUE)
-    public ResponseEntity<Void> create(@RequestBody CoinRequest request, UriComponentsBuilder uriComponentsBuilder) {
+    public ResponseEntity<Void> create(@Valid @RequestBody CoinRequest request, UriComponentsBuilder uriBuilder) {
         String code = service.create(request);
-        var uri = uriComponentsBuilder.path("/coins/{code}").buildAndExpand(code).toUri();
+        var uri = uriBuilder.path("/coins/{code}").buildAndExpand(code).toUri();
         return ResponseEntity.created(uri).build();
     }
 

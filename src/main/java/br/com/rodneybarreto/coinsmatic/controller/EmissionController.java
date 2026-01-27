@@ -2,6 +2,7 @@ package br.com.rodneybarreto.coinsmatic.controller;
 
 import br.com.rodneybarreto.coinsmatic.domain.dto.CoinValuesRequest;
 import br.com.rodneybarreto.coinsmatic.service.EmissionService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -19,7 +20,7 @@ public class EmissionController {
     public ResponseEntity<Void> updateValues(
             @PathVariable int year,
             @PathVariable String code,
-            @RequestBody CoinValuesRequest request
+            @Valid @RequestBody CoinValuesRequest request
     ) {
         service.updateValues(year, code, request);
         return ResponseEntity.noContent().build();
